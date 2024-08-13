@@ -1,3 +1,4 @@
+
 # Supply Chain Management Database
 Taken the code from koushik2299/Supply-Chain-Managment-Database to understand and work on it
 This repository contains a supply chain management database that has been designed to help businesses manage their supply chain operations efficiently. The database is built using SQL and can be used with any SQL-based database management system.
@@ -49,3 +50,6 @@ If you find any issues or would like to contribute to the supply chain managemen
 
 License
 The supply chain management database is licensed under the MIT License.
+
+Supply chain management project
+
