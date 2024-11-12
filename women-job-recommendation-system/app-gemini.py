@@ -7,14 +7,14 @@ import zapier_python as zapier
 app = Flask(__name__)
 
 # Initialize PaLM Client
-palm.configure(api_key='AIzaSyDKOjp4ccw4rdJ2u7qaG-rsbWr7wRzslyE')
+palm.configure(api_key='YOUR_GEMINI_API_KEY')
 
 # Load pre-trained job recommendation model
 model = joblib.load('job_recommendation_model_tfidf.pkl')
 skills_df = pd.read_csv('job_data.csv')
 
 # Zapier integration
-zapier_client = zapier.Zapier('https://hooks.zapier.com/hooks/catch/20651393/255nzok/')
+zapier_client = zapier.Zapier('YOUR_ZAPIER_WEBHOOK_URL')
 
 @app.route('/')
 def home():
