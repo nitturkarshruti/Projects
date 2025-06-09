@@ -100,6 +100,7 @@ RedisCrawl is a virtualized web crawling application developed using Oracle Virt
 - Deployed across multiple VMs (App, MySQL, Redis, Frontend)
 
 🔗 [Explore the project →](./RedisCrawl)
+🔗 [Understand the project →](https://youtu.be/Ji58ZD7KhQM)
 
 
 ## 📌 Notes
