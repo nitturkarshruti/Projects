@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quotes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .filterDiv {
+            float: left;
+            background-color: #f1f1f1;
+            width: 100%;
+            line-height: 1.5;
+            text-align: left;
+            margin: 10px 0;
+            padding: 10px;
+            display: none; /* Hidden by default */
+        }
+        /* The "show" class is added to the filtered elements */
+        .show {
+            display: block;
+        }
+        /* Style the buttons */
+        .btn {
+            border: none;
+            outline: none;
+            padding: 12px 16px;            
+            background-color: #2196F3;
+            color: #ffffff;
+            cursor: pointer;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            border-radius: 5px;
+        }
+        /* Add a light grey background on mouse-over */
+        .btn:hover {
+            background-color: #0b7dda;
+        }
+        /* Add a dark background to the active button */
+        .btn.active {
+            background-color: #666;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="myBtnContainer">
+            <!-- Control buttons generated dynamically based on unique keys -->
+            {% set unique_keys = [] %}
+            {% for key in quotes.values() %}
+                {% if key.decode('utf-8') not in unique_keys %}
+                    <button class="btn" onclick="filterSelection('{{ key.decode('utf-8') }}')"> {{ key.decode('utf-8') }}</button>
+                    {% set _ = unique_keys.append(key.decode('utf-8')) %}
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="container">
+            <!-- Filterable elements -->
+            {% for quote, keys_bytes in quotes.items() %}
+                {% set keys_str = keys_bytes.decode('utf-8') %}
+                {% set keys = keys_str.split(',') %}
+                <div class="filterDiv {{ keys_str }}">
+                    {{ quote.decode('utf-8') }} - Keys: {{ keys_str }}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <script>
+        // Function to filter elements based on key
+        function filterSelection(c) {
+            var x, i;
+            x = document.getElementsByClassName("filterDiv");
+            if (c == "all") {
+                for (i = 0; i < x.length; i++) {
+                    x[i].style.display = "block";
+                }
+            } else {
+                for (i = 0; i < x.length; i++) {
+                    if (x[i].classList.contains(c)) {
+                        x[i].style.display = "block";
+                    } else {
+                        x[i].style.display = "none";
+                    }
+                }
+            }
+
+            // Add active class to the clicked button
+            var btns = document.getElementsByClassName("btn");
+            for (i = 0; i < btns.length; i++) {
+                btns[i].classList.remove("active");
+            }
+            document.querySelector("button[data-key='" + c + "']").classList.add("active");
+        }
+
+        // By default, show all elements
+        filterSelection("all");
+    </script>
+</body>
+</html>

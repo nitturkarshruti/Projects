@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URLs and Hash Values</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>URLs and Hash Values</h1>
+    <table>
+        <tr>
+            <th>URL</th>
+            <th>Hash Value</th>
+        </tr>
+        {% for url, hash_value in url_to_id_hash.items() %}
+        <tr>
+            <td>{{ url.decode('utf-8') }}</td>
+            <td>{{ hash_value.decode('utf-8') }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <button class="button" onclick="window.location.href='/quotes'">View Quotes</button>
+</body>
+</html>
