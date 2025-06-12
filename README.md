@@ -26,6 +26,7 @@ I’m **Shruti Nitturkar**, a Computer Science graduate (Data Science concentrat
 - **Tech Stack:** Python, pandas, NLTK, Matplotlib, seaborn
 
 🔗 [View Folder →](./Aspect_Based_Sentiment_Analysis)
+🔗 [Read Medium Article →](./https://medium.com/@shrutinitturkar1996/%EF%B8%8F-can-online-reviews-help-us-understand-eviction-patterns-553c36bcfb4d)
 
 ---
 
@@ -100,7 +101,7 @@ RedisCrawl is a virtualized web crawling application developed using Oracle Virt
 - Deployed across multiple VMs (App, MySQL, Redis, Frontend)
 
 🔗 [Explore the project →](./RedisCrawl)
-- 🔗 [Understand the project →](https://youtu.be/Ji58ZD7KhQM)
+🔗 [Understand the project →](https://youtu.be/Ji58ZD7KhQM)
 
 
 ## 📌 Notes
